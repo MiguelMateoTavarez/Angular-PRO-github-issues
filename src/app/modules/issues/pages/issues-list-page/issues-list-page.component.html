@@ -13,6 +13,11 @@
     <!-- list -->
     <div class="mt-4 flex flex-col col-span-2">
       <h3>Issues:</h3>
+      @for(issue of issuesQuery.data(); track issue.id){
+        <issue-item [issue]="issue" />
+      }@empty {
+        <p>No issues</p>
+      }
       <!-- Todo: Issues list -->
       <!-- Todo: Spinner -->
       <!-- Todo: If not issues by filter -->
@@ -21,7 +26,11 @@
     <!-- Labels -->
     <div class="mt-4">
       <h3>Labels</h3>
-      <!-- Todo: Spinner -->
+      @if(labelsQuery.isLoading()) {
+        <p>Loading...</p>
+      }@else {
+        <issues-labels-selector [labels]="labelsQuery.data() ?? []"/>
+      }
       <!-- Todo: Label selector -->
     </div>
 

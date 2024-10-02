@@ -3,6 +3,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@helpers/*": ["src/app/helpers/*"],
+      "@actions/*": ["src/app/modules/issues/actions/*"],
+      "@interfaces/*": ["src/app/modules/issues/interfaces/*"]
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
